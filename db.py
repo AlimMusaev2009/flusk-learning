@@ -16,6 +16,15 @@ class Database:
         self.cursor.execute(sql, (username,))
         return self.cursor.fetchone()
 
+    def create_user(self, username, password):
+        try:
+            sql = "INSERT INTO users (user_name, user_password) VALUES (%s, %s)"
+            self.cursor.execute(sql, (username, password))
+            self.connection.commit()
+            return True
+        except pymysql.err.IntegrityError:
+            return False
+
     def close(self):
         self.cursor.close()
         self.connection.close()
