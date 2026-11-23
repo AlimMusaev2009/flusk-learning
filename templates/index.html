@@ -5,9 +5,10 @@
     <title>Вход</title>
 </head>
 <body>
-    <!-- Блок вывода ошибки -->
+    <h2>Вход</h2>
+
     {% if error %}
-        <div>{{ error }}</div>
+        <div style="color: red;">{{ error }}</div>
     {% endif %}
 
     <form action="{{ url_for('login') }}" method="POST">
@@ -19,5 +20,7 @@
 
         <button type="submit">Войти</button>
     </form>
+
+    <p>Нет аккаунта? <a href="{{ url_for('register_form') }}">Зарегистрироваться</a></p>
 </body>
 </html>
