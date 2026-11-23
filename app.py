@@ -3,7 +3,7 @@ from db import Database
 
 app = Flask(__name__)
 
-db = Database(host='127.0.0.1', user='root', password='admin', database='flask_auth')
+db = Database(host='localhost', user='root', password='admin', database='flask_auth')
 
 @app.route('/')
 def index():
